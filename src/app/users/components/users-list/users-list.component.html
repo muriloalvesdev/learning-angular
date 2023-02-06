@@ -1,0 +1,53 @@
+<mat-table [dataSource]="users">
+
+  <!-- Full Name Column -->
+  <ng-container matColumnDef="full_name">
+    <mat-header-cell *matHeaderCellDef> Nome Completo </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{ user.full_name }} </mat-cell>
+  </ng-container>
+
+  <!-- Username Column -->
+  <ng-container matColumnDef="username">
+    <mat-header-cell *matHeaderCellDef class="column-username"> Nome de usuário </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{ user.username }} </mat-cell>
+  </ng-container>
+
+  <!-- Status Column -->
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef class="column-status"> Status </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{ user.status }}
+
+      <mat-icon aria-hidden="false" aria-label="Status">
+        {{ user.status | status }}
+      </mat-icon>
+
+    </mat-cell>
+  </ng-container>
+
+  <!-- Bith Name Column -->
+  <ng-container matColumnDef="birth_date">
+    <mat-header-cell *matHeaderCellDef class="column-birth-date"> Data de Nascimento </mat-header-cell>
+    <mat-cell *matCellDef="let user"> {{ user.birth_date }} </mat-cell>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef="" class="action-column-header">
+      <button mat-icon-button (click)="onAdd()" color="accent" aria-label="Adicionar">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let user" class="action-column">
+      <button mat-icon-button (click)="onEdit(user)" color="primary" aria-label="Editar">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="onDelete(user)" color="warn" aria-label="Remover">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

@@ -1,0 +1,24 @@
+.mat-table {
+  overflow: auto;
+  max-height: 600px;
+}
+
+.action-column {
+  flex: 0 0 130px;
+}
+
+.action-column-header {
+  flex: 0 0 106px;
+}
+
+.column-birth-date {
+  flex: 0 0 300px;
+}
+
+.column-status {
+  flex: 0 0 214px;
+}
+
+.column-username {
+  flex: 0 0 290px;
+}

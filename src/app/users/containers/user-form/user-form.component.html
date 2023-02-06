@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="primary">
+      Detalhes do usuário
+    </mat-toolbar>
+    <form [formGroup]="form" class="min-width">
+      <mat-form-field class="full-width">
+        <input matInput
+        placeholder="Nome completo"
+        formControlName="full_name"/>
+        <mat-error *ngIf="form.get('full_name')?.invalid">
+          {{getErrorMessage('full_name')}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput
+          placeholder="Nome de usuário"
+          formControlName="username" />
+          <mat-error *ngIf="form.get('username')?.invalid">
+            {{getErrorMessage('username')}}
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput
+        placeholder="ex: 1999-01-02"
+        formControlName="birth_date"/>
+        <mat-error *ngIf="form.get('birth_date')?.invalid">
+          {{getErrorMessage('birth_date')}}
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>
